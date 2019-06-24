@@ -3,10 +3,12 @@ const lines = {
     text: `как дела?`,
     audio: 'audio/аудио1.mp3',
     prompt: '',
-    speaker: 1
+    speaker: 1,
+    open: false
   },
   speaker2_1: {
     text: 'у меня все хорошо, а как ты?',
+    open: false,
     audio: 'audio/аудио2.mp3',
     prompt: 'Say that you are OK and ask how is your partner doing',
     speaker: 2
@@ -15,11 +17,13 @@ const lines = {
     text: 'у меня тоже неплохо, кстати а что ты делаешь в субботу',
     audio: 'audio/аудио3.mp3',
     prompt: '',
-    speaker: 1
+    speaker: 1,
+    open: false
   },
   speaker2_2: {
     text: 'в субботу у меня футбол, а что?',
     audio: 'audio/аудио4.mp3',
+    open: false,
     speaker: 2,
     prompt:
       'tell your partner that you have football on Saturday, and ask him why he is asking you (а что? = and what?)'
@@ -28,13 +32,20 @@ const lines = {
     text: 'Просто я хотел пригласить тебя на день рождения',
     audio: 'audio/аудио5.mp3',
     speaker: 1,
-    prompt: ''
+    prompt: '',
+    open: false
   }
 };
 var cont = document.getElementById('cont');
 
 for (let key in lines) {
-  // Creater speaker 1 div
+  // Create toggle text
+  var toggleP = document.createElement('p');
+  toggleP.classList = 'toggle-text';
+  var togglePNode = document.createTextNode('show text');
+  toggleP.appendChild(togglePNode);
+
+  // Create speaker 1 div
   speaker1Div = document.createElement('div');
   speaker1Div.classList = 'speaker-1';
 
@@ -77,11 +88,20 @@ for (let key in lines) {
     speaker1Div.appendChild(soundDiv);
     speaker1Div.appendChild(textCont);
     cont.appendChild(speaker1Div);
+    speaker1Div.appendChild(toggleP);
   } else {
     // append to speaker 2 div
     speaker2Div.appendChild(soundDiv);
-    speaker2Div.appendChild(promptCont);
     speaker2Div.appendChild(textCont);
+    speaker2Div.appendChild(promptCont);
     cont.appendChild(speaker2Div);
+    speaker2Div.appendChild(toggleP);
   }
 }
+
+const showText = function(event) {
+  event.target.parentNode.children[1].childNodes[0].classList.add('show');
+  //document.querySelector('.text').style.display = 'block';
+};
+
+document.querySelector('#cont').addEventListener('click', showText);
