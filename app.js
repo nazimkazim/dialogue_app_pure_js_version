@@ -23,6 +23,12 @@ const lines = {
     speaker: 2,
     prompt:
       'tell your partner that you have football on Saturday, and ask him why he is asking you (а что? = and what?)'
+  },
+  speaker1_3: {
+    text: 'Просто я хотел пригласить тебя на день рождения',
+    audio: 'audio/аудио5.mp3',
+    speaker: 1,
+    prompt: ''
   }
 };
 var cont = document.getElementById('cont');
@@ -36,6 +42,7 @@ for (let key in lines) {
   speaker2Div = document.createElement('div');
   speaker2Div.classList = 'speaker-2';
 
+  // Create a sound container
   var sound = document.createElement('audio');
   var soundDiv = document.createElement('div');
   soundDiv.classList = 'sound-cont';
@@ -46,6 +53,7 @@ for (let key in lines) {
   soundDiv.appendChild(sound);
 
   if (lines[key].prompt !== '') {
+    // Create a prompt container
     var promptEl = document.createElement('p');
     var promptCont = document.createElement('div');
     promptCont.classList = 'prompt-cont';
@@ -55,6 +63,7 @@ for (let key in lines) {
     promptCont.appendChild(promptEl);
   }
 
+  // Create a text container
   var textEl = document.createElement('p');
   var textCont = document.createElement('div');
   textEl.classList = 'text';
