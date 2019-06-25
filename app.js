@@ -46,6 +46,7 @@ for (let key in lines) {
   toggleButtonCont.classList = 'toggle-text';
   var togglePNode = document.createTextNode('show text');
   toggleButton.appendChild(togglePNode);
+  toggleButton.classList = 'grow_box';
   toggleButtonCont.appendChild(toggleButton);
 
   // Create speaker 1 div
@@ -96,6 +97,7 @@ for (let key in lines) {
     // append to speaker 2 div
     speaker2Div.appendChild(soundDiv);
     speaker2Div.appendChild(textCont);
+    textCont.classList += ' text-cont-greenish';
     speaker2Div.appendChild(promptCont);
     cont.appendChild(speaker2Div);
     speaker2Div.appendChild(toggleButtonCont);
