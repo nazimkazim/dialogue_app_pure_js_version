@@ -25,7 +25,17 @@ const lines = {
     text: 'у меня тоже неплохо, кстати а что ты делаешь в субботу',
     audio: 'audio/аудио3.mp3',
     prompt: '',
-    speaker: 1
+    speaker: 1,
+    helpers: [
+      {
+        word_mother: 'Not bad',
+        word_target: 'неплохо'
+      },
+      {
+        word_mother: 'By the way',
+        word_target: 'Кстати'
+      }
+    ]
   },
   speaker2_2: {
     text: 'в субботу у меня футбол, а что?',
@@ -85,27 +95,32 @@ for (let key in lines) {
   // Create a tooltip
   var tooltip = document.createElement('div');
   tooltip.classList = 'tooltip';
-  tooltip.innerHTML += 'tip';
+  tooltip.innerHTML += '<div class="helpIcon"><img src="help.svg"/></div>';
 
   // Create a tooltip item
-  var itemMotherWord = document.createElement('span');
-  var itemTargetWord = document.createElement('span');
-  itemMotherWord.classList = 'tip';
-  itemTargetWord.classList = 'tip';
+  var tipParent = document.createElement('div');
+  tipParent.classList = 'tip';
 
   if (lines[key].helpers) {
     let helpers = lines[key].helpers;
     for (let i = 0; i < helpers.length; i++) {
+      var itemMotherWord = document.createElement('span');
+      var itemTargetWord = document.createElement('span');
+      var pairParent = document.createElement('span');
+      pairParent.classList = 'pair-block';
       var itemTextWordMother = document.createTextNode(helpers[i].word_mother);
-      var itemTextWordTarget = document.createTextNode(helpers[i].word_target);
       itemMotherWord.appendChild(itemTextWordMother);
+      var itemTextWordTarget = document.createTextNode(helpers[i].word_target);
       itemTargetWord.appendChild(itemTextWordTarget);
+      pairParent.appendChild(itemMotherWord);
+      pairParent.innerHTML += ' - ';
+      pairParent.appendChild(itemTargetWord);
+      tipParent.appendChild(pairParent);
     }
   }
 
   if (lines[key].helpers) {
-    tooltip.appendChild(itemTargetWord);
-    tooltip.appendChild(itemMotherWord);
+    tooltip.appendChild(tipParent);
   }
 
   // Create speaker 2 div

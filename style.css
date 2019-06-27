@@ -255,8 +255,8 @@ input[type='radio'] {
   position: absolute;
   width: 30px;
   height: 30px;
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
   z-index: 10;
 }
 
@@ -264,21 +264,22 @@ input[type='radio'] {
   opacity: 1;
   visibility: visible;
   margin-left: 0.5rem;
+  margin-bottom: -4rem;
   transition: all 0.35s;
 }
 .tip {
+  justify-content: center;
   opacity: 0;
   visibility: hidden;
   display: block;
-  white-space: nowrap;
   position: absolute;
   z-index: 1;
   left: 100%;
   bottom: 50%;
-  padding: 1em;
+  padding: 0.5em;
   margin-left: 0;
   margin-top: 0.5rem;
-  font-size: 0.8em;
+  font-size: 1em;
   font-weight: normal;
   background: #34495e;
   border-radius: 1em;
@@ -295,4 +296,19 @@ input[type='radio'] {
   bottom: calc(50% - 0.5rem);
   width: 0;
   height: 0;
+}
+
+.helpIcon {
+  width: 30px;
+}
+
+.helpIcon img {
+  width: 100%;
+}
+
+.pair-block {
+  justify-self: center;
+  display: block;
+  min-width: 300px;
+  text-align: center;
 }
