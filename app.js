@@ -8,7 +8,7 @@ const lines = {
   speaker2_1: {
     text: 'у меня все хорошо, а как ты?',
     audio: 'audio/аудио2.mp3',
-    prompt: 'Say that you are OK and ask how is your partner doing',
+    prompt: 'Say that: I am OK, how about you?',
     speaker: 2,
     helpers: [
       {
@@ -41,8 +41,7 @@ const lines = {
     text: 'в субботу у меня футбол, а что?',
     audio: 'audio/аудио4.mp3',
     speaker: 2,
-    prompt:
-      'tell your partner that you have football on Saturday, and ask him why he is asking you',
+    prompt: 'Say that: I have football on Saturday, why are you asking?',
     helpers: [
       {
         word_mother: 'Why are you asking?',
@@ -79,7 +78,7 @@ const lines = {
     audio: 'audio/аудио6.mp3',
     speaker: 2,
     prompt:
-      'Tell that on Saturday, unfortunately, you have work, and that you cannot come.',
+      'Say that: You know what, on Saturday I have football, unfortunately, I cannot come',
     helpers: [
       {
         word_mother: 'You know what!',
