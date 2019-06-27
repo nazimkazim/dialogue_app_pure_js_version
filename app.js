@@ -42,26 +42,74 @@ const lines = {
     audio: 'audio/аудио4.mp3',
     speaker: 2,
     prompt:
-      'tell your partner that you have football on Saturday, and ask him why he is asking you (а что? = why are you asking?)'
+      'tell your partner that you have football on Saturday, and ask him why he is asking you',
+    helpers: [
+      {
+        word_mother: 'Why are you asking?',
+        word_target: 'А что?'
+      }
+    ]
   },
   speaker1_3: {
     text: 'Просто я хотел пригласить тебя на день рождения',
     audio: 'audio/аудио5.mp3',
     speaker: 1,
-    prompt: ''
+    prompt: '',
+    helpers: [
+      {
+        word_mother: 'Just',
+        word_target: 'Просто'
+      },
+      {
+        word_mother: 'Wanted',
+        word_target: 'Хотел (past simple form)'
+      },
+      {
+        word_mother: 'To invite',
+        word_target: 'Пригласить'
+      },
+      {
+        word_mother: 'Birthday',
+        word_target: 'День рождения'
+      }
+    ]
   },
   speaker2_3: {
     text: 'Ты знаешь в субботу у меня работа, к сожалению, я не смогу прийти',
     audio: 'audio/аудио6.mp3',
     speaker: 2,
     prompt:
-      'Tell that on Saturday, unfortunately, you have work, and that you cannot come. You can start with "You know what"'
+      'Tell that on Saturday, unfortunately, you have work, and that you cannot come.',
+    helpers: [
+      {
+        word_mother: 'You know what!',
+        word_target: 'Ты знаешь!'
+      },
+      {
+        word_mother: 'Unfortunately!',
+        word_target: 'К сожалению!'
+      },
+      {
+        word_mother: 'Cannot',
+        word_target: 'Не могу'
+      }
+    ]
   },
   speaker1_4: {
     text: 'Тогда как насчет воскресенья',
     audio: 'audio/аудио7.mp3',
     speaker: 1,
-    prompt: ''
+    prompt: '',
+    helpers: [
+      {
+        word_mother: 'Then',
+        word_target: 'Тогда'
+      },
+      {
+        word_mother: 'How about',
+        word_target: 'Как насчет'
+      }
+    ]
   },
   speaker2_4: {
     text:
@@ -69,7 +117,25 @@ const lines = {
     audio: 'audio/аудио8.mp3',
     speaker: 2,
     prompt:
-      "Tell your partner: Yes, let's meet on Sunday, it just so happens that, I will be free on Sunday the entire day"
+      "Tell your partner: Yes, let's meet on Sunday, it just so happens that, I will be free on Sunday the entire day",
+    helpers: [
+      {
+        word_mother: "Let's meet",
+        word_target: 'Давай увидимся'
+      },
+      {
+        word_mother: 'It just so happens that',
+        word_target: 'Как раз'
+      },
+      {
+        word_mother: 'I will be free',
+        word_target: 'Я буду свободным'
+      },
+      {
+        word_mother: 'The entire day',
+        word_target: 'Весь день'
+      }
+    ]
   }
 };
 
@@ -95,7 +161,6 @@ for (let key in lines) {
   // Create a tooltip
   var tooltip = document.createElement('div');
   tooltip.classList = 'tooltip';
-  tooltip.innerHTML += '<div class="helpIcon"><img src="help.svg"/></div>';
 
   // Create a tooltip item
   var tipParent = document.createElement('div');
@@ -120,6 +185,7 @@ for (let key in lines) {
   }
 
   if (lines[key].helpers) {
+    tooltip.innerHTML += '<div class="helpIcon"><img src="help.svg"/></div>';
     tooltip.appendChild(tipParent);
   }
 
